@@ -1,6 +1,8 @@
+require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
+const port = process.env.PORT;
 const cors = require('cors');
 const routes = require('./routes/routes');
 const db= require('./database/db_connect');
@@ -10,6 +12,6 @@ db.once('open', ()=>console.log('Connected to MongoDB'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true}));
 app.use(cors());
-app.use('./api', routes)
+app.use('/api', routes)
 
-app.listen(process.env.PORT, () => console.log(`Listening on port ${process.env.PORT}`))
+app.listen(port, () => console.log(`Listening on port ${port}`))
