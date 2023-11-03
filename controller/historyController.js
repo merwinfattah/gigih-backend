@@ -1,4 +1,4 @@
-const {fetchHistory} = require('../service/historyService');
+const {fetchHistory} = require('../services/historyService');
 
 async function getHistory(req, res) {
     try {
