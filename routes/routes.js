@@ -5,10 +5,16 @@ const {registerUser, getUserProfile, getTokenAuth } = require('../controller/use
 
 router.get('/:userId/history', getHistory);
 
-router.get('/:userId/profile', getUserProfile);
+router.get('/:userId/profile', async (req, res) =>  {
+    await getUserProfile(req, res);
+});
 
-router.get('/signin', getTokenAuth);
+router.get('/signin', async (req, res) => {
+    await getTokenAuth(req, res);
+});
 
-router.post('/signup', registerUser);
+router.post('/signup', async (req, res) => {
+    await registerUser(req, res);
+});
 
 module.exports = router;

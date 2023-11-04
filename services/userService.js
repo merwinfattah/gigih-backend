@@ -1,8 +1,8 @@
 const User = require('../models/userModel');
 
 async function saveUserData (user) {
-    const user = new User(user);
-    await user.save();
+    const userSave = new User(user);
+    await userSave.save();
 }
 
 async function fetchUserProfile (userId) {
