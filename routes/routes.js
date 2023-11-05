@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const {getHistory} = require('../controller/historyController');
-const {registerUser, getUserProfile, getTokenAuth } = require('../controller/userController')
+const {registerUser, getUserProfile, getTokenAuth } = require('../controller/userController');
+const { getAllFranchise, getOneFranchise } = require('../controller/franchiseController');
 
 router.get('/:userId/history', getHistory);
 
@@ -16,5 +17,13 @@ router.get('/signin', async (req, res) => {
 router.post('/signup', async (req, res) => {
     await registerUser(req, res);
 });
+
+router.get('/franchises', async (req, res) => {
+    await getAllFranchise(req, res);
+});
+
+router.get('/franchises/:franchiseId', async (req, res) => {
+    await getOneFranchise(req, res);
+})
 
 module.exports = router;

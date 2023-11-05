@@ -1,5 +1,4 @@
 const {saveUserData, fetchUserProfile, retrieveUser} = require('../services/userService');
-const { v4: uuidv4 } = require('uuid');
 const bcrypt = require('bcrypt');
 const dotenv = require('dotenv');
 const jwt = require('jsonwebtoken');
