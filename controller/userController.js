@@ -39,7 +39,13 @@ async function getTokenAuth(req, res) {
         if (user) {
             const result = await bcrypt.compare(req.body.password, user.password);
             if (result) {
-                const token = jwt.sign(user, process.env.TOKEN_SECRET);
+                const userPayload = {
+                    userId: user._id,
+                    username: user.username,
+                    email: user.email,
+                    rolename: user.rolename,
+                };
+                const token = jwt.sign(userPayload, process.env.TOKEN_SECRET);
                 res.status(200).json({ token });
             }
         }
