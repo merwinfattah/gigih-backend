@@ -4,6 +4,10 @@ const {getHistory} = require('../controller/historyController');
 const {registerUser, getUserProfile, getTokenAuth } = require('../controller/userController');
 const { getAllFranchise, getOneFranchise } = require('../controller/franchiseController');
 
+router.get('/', (req, res) => {
+    res.send('Hello World!');
+});
+
 router.get('/:userId/history', getHistory);
 
 router.get('/:userId/profile', async (req, res) =>  {
