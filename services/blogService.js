@@ -4,8 +4,8 @@ async function fetchAllBlog () {
     return await blogs.find();
 }
 
-async function fetchBlog (blogId) {
+async function fetchBlogById (blogId) {
     return await blogs.findById(blogId);
 }
 
-module.exports = {fetchAllBlog, fetchBlog};
+module.exports = {fetchAllBlog, fetchBlogById};
