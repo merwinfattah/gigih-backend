@@ -22,7 +22,7 @@ const franchiseSchema = new mongoose.Schema({
         required: true
     },
     capital: {
-        type: String,
+        type: Number,
         required: true
     }
 })
