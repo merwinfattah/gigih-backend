@@ -16,7 +16,7 @@ router.get('/:userId/profile', async (req, res) =>  {
     await getUserProfile(req, res);
 });
 
-router.get('/signin', async (req, res) => {
+router.post('/signin', async (req, res) => {
     await getTokenAuth(req, res);
 });
 
