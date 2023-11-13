@@ -2,15 +2,15 @@ const mongoose = require('mongoose');
 
 const historySchema = new mongoose.Schema({
     userId: {
-        type: Number,
+        type: String,
         required: true
     },
     applicationDate: {
-        type: Number,
+        type: Date,
         required: true
     },
     franchiseId: {
-        type: Number,
+        type: String,
         required: true
     },
     status: {

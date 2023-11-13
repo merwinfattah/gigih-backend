@@ -1,4 +1,4 @@
-const {saveApplyFranchise} = require('../services/applyService');
+const {saveApplyFranchise, addHistory} = require('../services/applyService');
 
 async function postFranchiseApplication(req, res) {
     try {
@@ -21,4 +21,21 @@ async function postFranchiseApplication(req, res) {
     }
 }
 
-module.exports = {postFranchiseApplication};
+async function postHistory(req, res) {
+    try {
+        const newHistory = {
+            userId: req.body.userId,
+            applicationDate: new Date(),
+            franchiseId: req.params.franchiseId, //using params or body ????
+            status: false
+        }
+
+        const saveHistory = await addHistory(newHistory);
+        res.status(201).json(saveHistory)
+    }
+    catch (error) {
+        res.status(500).json({ message: `controller ${error.message}`});
+    }
+}
+
+module.exports = {postFranchiseApplication, postHistory};
