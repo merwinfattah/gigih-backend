@@ -4,7 +4,7 @@ const {getHistory} = require('../controller/historyController');
 const {registerUser, getUserProfile, getTokenAuth } = require('../controller/userController');
 const {getAllFranchise, getOneFranchise} = require('../controller/franchiseController');
 const {getAllBlog, getOneBlog} = require('../controller/blogController');
-const {postFranchiseApplication} = require('../controller/applyController');
+const {postFranchiseApplication, postHistory} = require('../controller/applyController');
 
 router.get('/', (req, res) => {
     res.send('Hello World!');
@@ -38,6 +38,7 @@ router.get('/blog/:blogId', getOneBlog);
 
 router.post('/apply', async (req, res) => {
     await postFranchiseApplication(req, res);
+    await postHistory(req, res); //not tested yet
 })
 
 module.exports = router;
