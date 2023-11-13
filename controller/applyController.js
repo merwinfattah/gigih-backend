@@ -17,16 +17,18 @@ async function postFranchiseApplication(req, res) {
         const saveApplication = await saveApplyFranchise(newApplication);
         res.status(200).json(saveApplication);
     } catch (error) {
-        res.status(500).json({ message: `controller ${error.message}`});
+        res.status(500).json({ message: `controller post apply ${error.message}`});
     }
 }
 
 async function postHistory(req, res) {
     try {
         const newHistory = {
-            userId: req.body.userId,
+            userId: req.body.franchisee_id,
             applicationDate: new Date(),
-            franchiseId: req.params.franchiseId, //using params or body ????
+            franchiseName: req.body.franchise_name, //using params or body ????
+            franchiseAddress: req.body.franchise_address,
+            franchisePhone: req.body.franchise_phone,
             status: false
         }
 
@@ -34,7 +36,7 @@ async function postHistory(req, res) {
         res.status(201).json(saveHistory)
     }
     catch (error) {
-        res.status(500).json({ message: `controller ${error.message}`});
+        res.status(500).json({ message: `controller post history ${error.message}`});
     }
 }
 

@@ -9,7 +9,15 @@ const historySchema = new mongoose.Schema({
         type: Date,
         required: true
     },
-    franchiseId: {
+    franchiseName: {
+        type: String,
+        required: true
+    },
+    franchiseAddress: {
+        type: String,
+        required: true
+    },
+    franchisePhone: {
         type: String,
         required: true
     },

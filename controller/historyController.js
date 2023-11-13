@@ -2,7 +2,8 @@ const {fetchHistory} = require('../services/historyService');
 
 async function getHistory(req, res) {
     try {
-    const userId = Number(req.params.userId);
+    const userId = req.params.userId;
+    console.log(userId);
     const history = await fetchHistory(userId);
     res.status(200).json(history)
     }

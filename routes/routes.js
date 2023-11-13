@@ -10,7 +10,7 @@ router.get('/', (req, res) => {
     res.send('Hello World!');
 });
 
-router.get('/:userId/history', getHistory);
+router.get('/history/:userId', getHistory);
 
 router.get('/:userId/profile', async (req, res) =>  {
     await getUserProfile(req, res);
