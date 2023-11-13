@@ -3,6 +3,7 @@ const router = express.Router();
 const {getHistory} = require('../controller/historyController');
 const {registerUser, getUserProfile, getTokenAuth } = require('../controller/userController');
 const { getAllFranchise, getOneFranchise } = require('../controller/franchiseController');
+const {getAllBlog, getOneBlog} = require('../controller/blogController');
 
 router.get('/', (req, res) => {
     res.send('Hello World!');
@@ -29,5 +30,9 @@ router.get('/franchises', async (req, res) => {
 router.get('/franchises/:franchiseId', async (req, res) => {
     await getOneFranchise(req, res);
 })
+
+router.get('/blog', getAllBlog);
+
+router.get('/blog/:blogId', getOneBlog);
 
 module.exports = router;
