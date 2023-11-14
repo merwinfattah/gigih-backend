@@ -26,10 +26,10 @@ async function postHistory(req, res) {
         const newHistory = {
             userId: req.body.franchisee_id,
             applicationDate: new Date(),
-            franchiseName: req.body.franchise_name, //using params or body ????
+            franchiseName: req.body.franchise_name,
             franchiseAddress: req.body.franchise_address,
             franchisePhone: req.body.franchise_phone,
-            status: false
+            status: 'waiting'
         }
 
         const saveHistory = await addHistory(newHistory);
