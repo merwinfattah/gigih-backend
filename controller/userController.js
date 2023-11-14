@@ -44,6 +44,7 @@ async function getTokenAuth(req, res) {
                     username: user.username,
                     email: user.email,
                     rolename: user.rolename,
+                    phoneNumber: user.phoneNumber
                 };
                 const token = jwt.sign(userPayload, process.env.TOKEN_SECRET);
                 res.status(200).json({ token });
