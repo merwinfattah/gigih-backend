@@ -14,16 +14,6 @@ async function postFranchiseApplication(req, res, next) {
             funding_capital: req.body.funding_capital
         };
 
-        const saveApplication = await saveApplyFranchise(newApplication);
-        res.status(200).json(saveApplication);
-    } catch (error) {
-        res.status(500).json({ message: `controller post apply ${error.message}`});
-    }
-    next();
-}
-
-async function postHistory(req, res, next) {
-    try {
         const newHistory = {
             userId: req.body.franchisee_id,
             applicationDate: new Date(),
@@ -32,14 +22,33 @@ async function postHistory(req, res, next) {
             franchisePhone: req.body.franchise_phone,
             status: 'waiting'
         }
-        
+
+        const saveApplication = await saveApplyFranchise(newApplication);
         await addHistory(newHistory);
-        // const saveHistory = await addHistory(newHistory);
-        // res.status(201).json(saveHistory)
-    }
-    catch (error) {
-        res.status(500).json({ message: `controller post history ${error.message}`});
+        res.status(200).json(saveApplication);
+    } catch (error) {
+        res.status(500).json({ message: `controller post apply ${error.message}`});
     }
 }
 
-module.exports = {postFranchiseApplication, postHistory};
+// async function postHistory(req, res, next) {
+//     try {
+//         const newHistory = {
+//             userId: req.body.franchisee_id,
+//             applicationDate: new Date(),
+//             franchiseName: req.body.franchise_name,
+//             franchiseAddress: req.body.franchise_address,
+//             franchisePhone: req.body.franchise_phone,
+//             status: 'waiting'
+//         }
+        
+//         await addHistory(newHistory);
+//         // const saveHistory = await addHistory(newHistory);
+//         // res.status(201).json(saveHistory)
+//     }
+//     catch (error) {
+//         res.status(500).json({ message: `controller post history ${error.message}`});
+//     }
+// }
+
+module.exports = {postFranchiseApplication};

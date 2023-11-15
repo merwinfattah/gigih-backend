@@ -17,7 +17,7 @@ async function registerUser(req, res) {
             phoneNumber: req.body.phoneNumber
         }
         const saveUser = await saveUserData(newUser);
-        res.status(200).json(saveUser);
+        res.status(201).json(saveUser);
     } catch(error) {
         res.status(500).json({ message: `controller ${error.message}`});
     }
