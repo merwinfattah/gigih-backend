@@ -11,7 +11,7 @@ db.once('open', ()=>console.log('Connected to MongoDB'));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true}));
-// app.use(cors());
+app.use(cors());
 app.use('/api', routes)
 
 app.listen(port, () => console.log(`Listening on port ${port}`))
