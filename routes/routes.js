@@ -36,9 +36,9 @@ router.get('/blog', getAllBlog);
 
 router.get('/blog/:blogId', getOneBlog);
 
-router.post('/apply', async (req, res) => {
-    await postFranchiseApplication(req, res);
-    await postHistory(req, res); //not tested yet
+router.post('/apply', async (req, res, next) => {
+    await postFranchiseApplication(req, res, next);
+    await postHistory(req, res, next);
 })
 
 module.exports = router;
