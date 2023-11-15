@@ -1,6 +1,6 @@
 const {saveApplyFranchise, addHistory} = require('../services/applyService');
 
-async function postFranchiseApplication(req, res) {
+async function postFranchiseApplication(req, res, next) {
     try {
         const newApplication = {
             franchisee_id: req.body.franchisee_id,
@@ -19,9 +19,10 @@ async function postFranchiseApplication(req, res) {
     } catch (error) {
         res.status(500).json({ message: `controller post apply ${error.message}`});
     }
+    next();
 }
 
-async function postHistory(req, res) {
+async function postHistory(req, res, next) {
     try {
         const newHistory = {
             userId: req.body.franchisee_id,
@@ -31,9 +32,10 @@ async function postHistory(req, res) {
             franchisePhone: req.body.franchise_phone,
             status: 'waiting'
         }
-
-        const saveHistory = await addHistory(newHistory);
-        res.status(201).json(saveHistory)
+        
+        await addHistory(newHistory);
+        // const saveHistory = await addHistory(newHistory);
+        // res.status(201).json(saveHistory)
     }
     catch (error) {
         res.status(500).json({ message: `controller post history ${error.message}`});
