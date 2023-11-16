@@ -369,5 +369,5 @@ Send application data
    ```
    http://localhost: PORT = ?
    ```
-
-# TODO => API/ENDPOINT LIST, HOW TO RUN, HOW TO TEST, DOCKERFILE
+## How To Test
+Simply by sending HTTP request base on the ```Endpoint List```.
