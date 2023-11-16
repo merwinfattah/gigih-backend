@@ -24,6 +24,10 @@ const franchiseSchema = new mongoose.Schema({
     capital: {
         type: Number,
         required: true
+    },
+    phoneNumber: {
+        type: String,
+        requared: true
     }
 })
 
