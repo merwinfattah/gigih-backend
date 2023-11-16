@@ -344,7 +344,7 @@ Send application data
   - code: 201
   - content: none
 
-## How To RUn
+## How To Run
 1. Clone the repo
    ```
    git clone https://github.com/engkih/gigih-midterm.git
