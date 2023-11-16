@@ -158,4 +158,111 @@ The structure consist of several files and folders:
 
 The server will start after ```app.js``` being run. The ```app.js``` act as the entry for the API the it will send to the ```./routes/routes.js``` to handle the API request. The ```./routes/routes.js``` will forward the logic to the controller inside the ```./controller``` using the query method from ```./services``` based on database schema in ```./model```.
 
+## API/Endpoint List
+
+### GET /api/history/userId
+Return application history based on userId
+- URL Params:
+  - Required ```userId = string```
+- Data Params:
+  - None
+- Headers:
+Content type : application/json
+- Succes Response:
+  - code: 200
+  - content:
+```
+{
+  "_id": string,
+  "userId": string,
+  "applicationDate": date,
+  "franchiseName": string,
+  "franchiseAddress": strinig,
+  "franchisePhone": string,
+  "status": string,
+}
+```
+
+### GET /api/:userId/profile
+Return user profile
+- URL Params:
+  - Required ```userId = string```
+- Data Params:
+  - None
+- Headers:
+Content type : application/json
+- Succes Response:
+  - code: 200
+  - content:
+```
+{
+  "_id": string,
+  "username": string,
+  "password": string,
+  "email": string,
+  "rolename": string,
+  "phoneNumber": string,
+}
+```
+### POST /api/signin
+Send email and password then return access token.
+- URL Params:
+- Data Params:
+  ```
+  {
+      "email" : string,
+      "password" : integer
+  }
+  ```
+- Headers:
+Content type : application/json
+- Succes Response:
+  - code: 200
+  - content:
+    ```
+    {
+        "token": string
+    }
+    ```
+### POST /api/signup
+Send new signup user data
+- URL Params: none
+- Data Params:
+  ```
+    {
+      "_id": string,
+      "username": string,
+      "password": string,
+      "email": string,
+      "phoneNumber": string,
+    }
+  ```
+- Headers:
+Content type : application/json
+- Succes Response:
+  - code: 201
+  - content: none
+
+### GET /api/franchises
+Return list of available franchises
+- URL Params: none
+- Data Params: none
+- Headers:
+Content type : application/json
+- Succes Response:
+  - code: 200
+  - content:
+  ```
+  {
+  "_id": string,
+  "name": string,
+  "img": string,
+  "description": string,
+  "owner": string,
+  "location": string,
+  "capital": number
+}
+  ```
+
+
 # TODO => API/ENDPOINT LIST, HOW TO RUN, HOW TO TEST, DOCKERFILE
