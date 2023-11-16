@@ -344,5 +344,30 @@ Send application data
   - code: 201
   - content: none
 
+## How To RUn
+1. Clone the repo
+   ```
+   git clone https://github.com/engkih/gigih-midterm.git
+   ```
+2. Install the dependencies
+   ```
+   npm install
+   ```
+3. Build the database.
+   - for the ```user``` data base, it will populate when you send data do the ```/api/signup``` endpoint based on the database structure mentioned above.
+   - for the ```applies``` and history, it will pulate when you send data do the ```/api/apply``` endpoint based on the database structure mentioned above.
+   - for the ```blog``` and ```franchises``` needs to be populated manually from the mongodb itself based one the database structure mentioned above.
+4. Create ```.env``` file then input the followin variable :
+   - ```PORT = ``` input with the value of port you want the server running.
+   - ```DATABASE_URL = ``` input the value of your ```mongodb``` database link.
+6. Run the server
+   ```
+   node app.js
+   ```
+7. Test the API
+   The servir will run on :
+   ```
+   http://localhost: PORT = ?
+   ```
 
 # TODO => API/ENDPOINT LIST, HOW TO RUN, HOW TO TEST, DOCKERFILE
