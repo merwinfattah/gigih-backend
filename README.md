@@ -369,5 +369,8 @@ Send application data
    ```
    http://localhost: PORT = ?
    ```
+    ### For Docker
+    If you want to use docker, before building the docker image you can change the exposed port in the ```.env (PORT = )``` and in the ```Dockerfile (EXPOSE ...)```, the value of ```.env (PORT = )``` and ```Dockerfile (EXPOSE ...)``` should be the same.
+   
 ## How To Test
 Simply by sending HTTP request base on the ```Endpoint List```.
