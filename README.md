@@ -206,7 +206,7 @@ Content type : application/json
 ```
 ### POST /api/signin
 Send email and password then return access token.
-- URL Params:
+- URL Params: none
 - Data Params:
   ```
   {
@@ -261,8 +261,88 @@ Content type : application/json
   "owner": string,
   "location": string,
   "capital": number
-}
+    }
   ```
+
+### GET /api/franchises/:franchiseId
+Return one spesific franchise based on franchiseId
+- URL Params:
+  - Required ```franchiseId = string```
+- Data Params: none
+- Headers:
+Content type : application/json
+- Succes Response:
+  - code: 200
+  - content:
+  ```
+  {
+  "_id": string,
+  "name": string,
+  "img": string,
+  "description": string,
+  "owner": string,
+  "location": string,
+  "capital": number
+    }
+  ```
+### GET /api/blog
+Return list of available blog article
+- URL Params: none
+- Data Params: none
+- Headers:
+  Content type : application/json
+  - Succes Response:
+  - code: 200
+  - content:
+  ```
+    {
+      "_id": string,
+      "tile": string,
+      "content": string,
+    }
+  ```
+
+### GET /api/blog/blogId
+Return specific blog article based on blogId
+- URL Params:
+    - Required ```blogId = string```
+- Data Params: none
+- Headers:
+  Content type : application/json
+  - Succes Response:
+  - code: 200
+  - content:
+  ```
+    {
+      "_id": string,
+      "tile": string,
+      "content": string,
+    }
+  ```
+
+### POST /api/apply
+Send application data
+- URL Params: none
+- Data Params:
+```
+{
+  "_id": string,
+  "franchisee_id": string,
+  "franchisee_name": string,
+  "franchisee_address": string,
+  "franchisee_placeDateBirth": string,
+  "franchisee_phone": string,
+  "franchise_name": string,
+  "franchise_address": string,
+  "franchise_phone": string,
+  "funding_capital": number,
+}
+```
+- Headers:
+  Content type : application/json
+  - Succes Response:
+  - code: 201
+  - content: none
 
 
 # TODO => API/ENDPOINT LIST, HOW TO RUN, HOW TO TEST, DOCKERFILE
