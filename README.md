@@ -1,5 +1,7 @@
 # Waralobby Backend
 This project is the backend part of the Waralobby website. This is an API that will return JSON for the Waralobby website.
+- Frontend: ```https://waralobby-ui.vercel.app/```
+- Backend: ```https://waralobby.mrayhanfadil.my.id/api```
 
 ## Database Structure
 The database is using MongoDB utulizing mongoose. The default database url was stored in ```.env``` file refered as ```DATABASE_URL```. The default value is :
@@ -347,7 +349,7 @@ Send application data
 ## How To Run
 1. Clone the repo
    ```
-   git clone https://github.com/engkih/gigih-midterm.git
+   git clone https://github.com/merwinfattah/gigih-backend.git
    ```
 2. Install the dependencies
    ```
